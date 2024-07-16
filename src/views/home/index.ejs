@@ -317,6 +317,14 @@
     .fade-in {
       opacity: 1;
     }
+    .van-popup--center23{
+      top: 78%;
+      left: 50%;
+      transform: translate(-50%,0);
+      overflow-y: hidden !important;
+     
+     
+    }
   </style>
 
 </head>
@@ -326,13 +334,12 @@
 <body style="font-size: 12px;">
 
 
-  <div class="overlay" id="overlay"></div>
+  <div class="" id=""></div>
 
   <!-- Popup content -->
-  <div id="welcomePopup" class="popup">
+  <!-- <div id="welcomePopup" class="popup">
 
     <div role="dialog" tabindex="0" class="van-popup van-popup--center van-dialog prompt-dialog" style="z-index: 2001;">
-      <!---->
       <div class="van-dialog__content">
         <div class="promptHeader">
           Notification
@@ -445,19 +452,26 @@
         </div>
       </div>
       <div class="van-hairline--top van-dialog__footer">
-        <!---->
         <button type="button" class="van-button van-button--default van-button--large van-dialog__confirm"
           onclick="closePopup()">
           <div class="van-button__content">
-            <!---->
             <span class="van-button__text" style="margin-left: 0px !important; ">
               Confirm
             </span>
-            <!---->
           </div>
         </button>
       </div>
-      <!---->
+      
+    </div>
+
+  </div> -->
+  <div id="welcomePopup" class="popup">
+    <div role="dialog" tabindex="1" class="van-popup van-popup--center23 " style="z-index: 2001; margin: 0;padding: 10px 18px; border-radius: 20px; background: linear-gradient(180deg, #2AAAF3 0%, #2979F2 100%);">
+      <div style="color: #fff;">
+        <a href="/lotus_win.apk" style="cursor: pointer;color: #fff;text-decoration: none; margin-right: 5px;border: 1px solid white;border-top: 0;border-left: 0;border-bottom: 0; padding-right: 5px;"> Download Apk</a>
+        <span style="cursor: pointer;" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
+
+      </div>
     </div>
 
   </div>
@@ -473,8 +487,8 @@
 
 
 
-
   <div id="app" data-v-app="">
+   
     <div data-v-1690b988="" class="ar-loading-view"
       style="display: none; --7688837a: &#39;Roboto&#39;, &#39;Inter&#39;, sans-serif;">
       <div data-v-1690b988="" class="loading-wrapper">
@@ -559,6 +573,7 @@
       </div>
     </div>
     <div data-v-9bebd08e="" class="content" style="--7688837a: &#39;Roboto&#39;, &#39;Inter&#39;, sans-serif;">
+      
       <div data-v-58c5e826="" data-v-9bebd08e="" class="navbar">
         <div data-v-58c5e826="" class="navbar-fixed" style="background: rgb(43 50 112);">
           <div data-v-58c5e826="" class="navbar__content">
@@ -739,8 +754,8 @@
           </a>
         </div>
       </div>
-
-
+     
+     
       <div data-v-c67ad2ea="" data-v-c62eac27="" class="daman-lottery-list" id="lottery">
         <!---->
         <!---->
@@ -2762,10 +2777,22 @@
         popup.style.display = "block";
         overlay.style.display = "block";
       }
+      function showPopup2() {
+        var popup = document.getElementById("welcomePopup2");
+        var overlay = document.getElementById("overlay");
+        popup.style.display = "block";
+        overlay.style.display = "block";
+      }
 
       // Function to close the popup
       function closePopup() {
         var popup = document.getElementById("welcomePopup");
+        var overlay = document.getElementById("overlay");
+        popup.style.display = "none";
+        overlay.style.display = "none";
+      }
+      function closePopup2() {
+        var popup = document.getElementById("welcomePopup2");
         var overlay = document.getElementById("overlay");
         popup.style.display = "none";
         overlay.style.display = "none";
