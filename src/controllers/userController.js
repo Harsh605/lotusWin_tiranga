@@ -1564,6 +1564,14 @@ const useRedenvelope = async (req, res) => {
     };
     
     console.log(code,"code");
+    const [usedRedenvelope] = await connection.query('SELECT * FROM redenvelopes_used WHERE phone_used = ? AND id_redenvelops = ?', [userInfo.phone, code]);
+    if (usedRedenvelope.length > 0) {
+        return res.status(400).json({
+            message: 'Gift code already used by this user',
+            status: false,
+            timeStamp: timeNow,
+        });
+    }
     const [redenvelopes] = await connection.query(
         'SELECT * FROM redenvelopes WHERE id_redenvelope = ?', [code]);
 
