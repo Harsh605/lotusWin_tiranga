@@ -1579,7 +1579,13 @@ const useRedenvelope = async (req, res) => {
         const d = new Date();
         const time = d.getTime();
         if (infoRe.status == 0) {
-            await connection.query('UPDATE redenvelopes SET used = ?, status = ? WHERE `id_redenvelope` = ? ', [0, 1, infoRe.id_redenvelope]);
+              if (infoRe.status == 0 && infoRe.used >1 ){
+                await connection.query('UPDATE redenvelopes SET used = used - ?, status = ? WHERE `id_redenvelope` = ? ', [1, 0, infoRe.id_redenvelope]);
+            }
+            else{
+                await connection.query('UPDATE redenvelopes SET used = ?, status = ? WHERE `id_redenvelope` = ? ', [0, 1, infoRe.id_redenvelope]);
+            }
+          
             await connection.query('UPDATE users SET money = money + ? WHERE `phone` = ? ', [infoRe.money, userInfo.phone]);
             let sql = 'INSERT INTO redenvelopes_used SET phone = ?, phone_used = ?, id_redenvelops = ?, money = ?, `time` = ? ';
             await connection.query(sql, [infoRe.phone, userInfo.phone, infoRe.id_redenvelope, infoRe.money, time]);
